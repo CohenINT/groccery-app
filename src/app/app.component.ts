@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'groccery-app';
+
+  constructor()
+  {
+    console.log('app.componenet initiated.');
+    debugger;
+
+  }
 }

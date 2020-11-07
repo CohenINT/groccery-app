@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from 'src/app/services/items/items.service';
-import IITEM from '../../types/IItem';
+import {Item} from '../../types/Item';
 
 @Component({
   selector: 'app-items-list',
@@ -9,11 +9,13 @@ import IITEM from '../../types/IItem';
 })
 export class ItemsListComponent implements OnInit {
 
-  constructor(private itemsService: ItemsService) { }
-  public itemList: IITEM[];
+  constructor(private itemsService: ItemsService) {
+    console.log("check this out");
+
+  }
+  public itemList: Item[];
 
   ngOnInit(): void {
-   this.FetchItemsByUserid("44");
   }
 
   FetchItemsByUserid(userid: string): any
