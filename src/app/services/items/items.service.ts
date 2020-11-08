@@ -11,17 +11,21 @@ import { catchError, retry, map } from 'rxjs/operators';
 export class ItemsService {
 
   constructor(private httpClient: HttpClient) {
-    console.log("check this out");
+    console.log('ItemService has been initiated.');
+
 
 
   }
-   private url = "localhost:8000/listItems/1";
+   private url = 'localhost:8000/listItems/';
 
 
 
   fetchItems(userid: string = '1'): Observable<any[]>
   {
+      this.url += userid; // Attaching the userid as parameter for the endpoint.
+
       return (this.httpClient.get<any>(this.url).pipe(map(res => {
+         console.log('FetchItems() has been called , trying to get returned data from endpoint');
          console.log(res.json());
          return res.json();
       })));

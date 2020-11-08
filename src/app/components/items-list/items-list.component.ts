@@ -10,7 +10,7 @@ import {Item} from '../../types/Item';
 export class ItemsListComponent implements OnInit {
 
   constructor(private itemsService: ItemsService) {
-    console.log("check this out");
+    console.log('ItemsList componenet initiated.');
 
   }
   public itemList: Item[];
@@ -20,10 +20,9 @@ export class ItemsListComponent implements OnInit {
 
   FetchItemsByUserid(userid: string): any
   {
-      this.itemsService.fetchItems("12").subscribe(data => {
+      this.itemsService.fetchItems('TempParameter').subscribe(data => {
 
-      console.log(data);
-      this.itemList = data;
+      console.log('FetchItemsByUserid() has been called.');
 
     });
 

@@ -11,9 +11,10 @@
    name: string;
    description?: string;
    url?: string;
-constructor( _name: string,  _description?:string, _url?:string){
-  this.name = _name;
-
-}
+   constructor( _name: string,  _description?: string, _url?: string)
+   {
+   this.name = _name;
+   _description !== '' ? this.description = _description : this.description = '';
+   }
 
 }

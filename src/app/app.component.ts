@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {ItemsListComponent} from './components/items-list/items-list.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +11,7 @@ export class AppComponent {
   constructor()
   {
     console.log('app.componenet initiated.');
-    debugger;
+
 
   }
 }
