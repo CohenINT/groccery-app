@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from 'src/app/services/items/items.service';
 import {Item} from '../../types/Item';
@@ -11,6 +12,7 @@ export class ItemsListComponent implements OnInit {
 
   constructor(private itemsService: ItemsService) {
     console.log('ItemsList componenet initiated.');
+    const sub  =  this.FetchItemsByUserid("asf");
 
   }
   public itemList: Item[];
@@ -20,13 +22,10 @@ export class ItemsListComponent implements OnInit {
 
   FetchItemsByUserid(userid: string): any
   {
-      this.itemsService.fetchItems('TempParameter').subscribe(data => {
-
-      console.log('FetchItemsByUserid() has been called.');
-
-    });
-
-
+       const subscription = this.itemsService.fetchItems('TempParameter').subscribe((data) =>{
+        console.log(data);
+        return data;
+      });
   }
 
 }
