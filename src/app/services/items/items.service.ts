@@ -26,7 +26,7 @@ export class ItemsService {
   {
       //this.url += userid; // Attaching the userid as parameter for the endpoint.
 
-      return this.httpClient.get<Item[]>(this.url+"/ddd");
+      return this.httpClient.get<Item[]>(this.url + '/' +userid );
 
   }
 

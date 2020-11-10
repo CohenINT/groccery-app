@@ -1,5 +1,7 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ItemsService } from 'src/app/services/items/items.service';
 import {Item} from '../../types/Item';
 
@@ -15,17 +17,19 @@ export class ItemsListComponent implements OnInit {
     const sub  =  this.FetchItemsByUserid("asf");
 
   }
-  public itemList: Item[];
+  public itemList: Array<Item>;
 
   ngOnInit(): void {
   }
 
   FetchItemsByUserid(userid: string): any
   {
-       const subscription = this.itemsService.fetchItems('TempParameter').subscribe((data) =>{
-        console.log(data);
-        return data;
-      });
+       const subscription  = this.itemsService.fetchItems(userid).subscribe((value: Item[]) => {
+        value.forEach(element => {
+          console.log(element);
+          this.itemList = value;
+        });
+       });
   }
 
 }
