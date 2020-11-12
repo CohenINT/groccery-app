@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,12 +13,14 @@ export class ItemsListComponent implements OnInit {
 
   constructor(private itemsService: ItemsService) {
     console.log('ItemsList componenet initiated.');
-    const sub  =  this.FetchItemsByUserid("asf");
+
 
   }
   public itemList: Array<Item>;
+  public ItemListSubsription: Observable<Item[]>;
 
   ngOnInit(): void {
+    this.ItemListSubsription  =  this.FetchItemsByUserid("asf");
   }
 
   FetchItemsByUserid(userid: string): any
@@ -30,6 +31,7 @@ export class ItemsListComponent implements OnInit {
           this.itemList = value;
         });
        });
+       return subscription;
   }
 
 }
